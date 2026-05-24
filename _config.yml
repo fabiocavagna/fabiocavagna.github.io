@@ -2,9 +2,6 @@ plugins:
   - jekyll-include-cache
 remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 
-plugins:
-  - jekyll-include-cache
-
 # Site settings
 title: "Fabio Cavagna"
 subtitle: "Space Engineering PhD Student"
@@ -24,9 +21,13 @@ author:
       icon: "fas fa-envelope"
       url: "mailto:your@email.com"
 
+include:
+  - _pages
+
 defaults:
   - scope:
       path: ""
+      type: pages
     values:
       layout: single
       author_profile: true
