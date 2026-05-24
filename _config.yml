@@ -1,6 +1,32 @@
-title: Fabio Cavagna
-description: Personal portfolio
+plugins:
+  - jekyll-include-cache
 remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 
 plugins:
   - jekyll-include-cache
+
+# Site settings
+title: "Fabio Cavagna"
+subtitle: "Space Engineering PhD Student"
+description: "Personal portfolio"
+url: "https://username.github.io"  # replace with yours
+
+# Author info (shows in sidebar)
+author:
+  name: "Fabio Cavagna"
+  bio: "PhD student in Space Engineering"
+  location: "Italy"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/fabio-cavagna/"
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:your@email.com"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: true
