@@ -23,6 +23,7 @@ author:
 
 include:
   - _pages
+  - _portfolio
 
 defaults:
   - scope:
@@ -31,8 +32,14 @@ defaults:
     values:
       layout: single
       author_profile: true
+  - scope:
+    path: ""
+    type: portfolio
+    values:
+    layout: single
+    author_profile: true 
 
-  collections:
+collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
