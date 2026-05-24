@@ -6,7 +6,7 @@ remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 title: "Fabio Cavagna"
 subtitle: "Space Engineering PhD Student"
 description: "Personal portfolio"
-url: "https://username.github.io"  # replace with yours
+url: "https://fabio-cavagna.github.io" 
 
 # Author info (shows in sidebar)
 author:
