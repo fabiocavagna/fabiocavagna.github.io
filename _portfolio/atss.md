@@ -7,7 +7,7 @@ header:
 
 ## Objective
 
-The project covers a complete structural compliance analysis of an axial-symmetric spacecraft (SC) intended for launch on the Vega-C launch vehicle (LV), using the Vampire 937 adapter. Both the SC and LV are modeled in Femap and analyzed with MSC Nastran, and MATLAB. The analyses follow standard space-industry practices and verify compliance with the Vega-C User Manual requirements.
+The project covers a complete structural compliance analysis of an axial-symmetric spacecraft (SC) intended for launch on the Vega-C launch vehicle (LV), using the Vampire 937 adapter. Both the SC and LV are modeled in Femap and analyzed with MSC Nastran, and MATLAB. The analyses follow standard space-industry practices (ECSS) and verify compliance with the Vega-C User Manual requirements.
 
 ## Tools
 
@@ -70,4 +70,4 @@ Eigenvalue buckling analysis under all quasi-static load cases yielded a minimum
 
 ## What I Learned
 
-Key takeaways from this project...
+This project, supervised by Pietro Nali, a Thales Alenia Space expert in design and dynamic testing of satellites, taught me the key concepts behind the main analyses performed during the design and development phases of a satellite. Beyond the valuable hands-on experience with industry-standard software such as Femap and MSC Nastran, the project strengthened my teamwork and problem-solving skills, as we worked in a group to tackle complex, interdependent structural analyses under realistic constraints. Moreover, I gained a deeper understanding of how structural compliance is assessed end-to-end. Finally, I learned how to critically interpret results and propose design improvements when non-conformities arise.
