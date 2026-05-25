@@ -33,11 +33,11 @@ defaults:
       layout: single
       author_profile: true
   - scope:
-    path: ""
-    type: portfolio
+      path: ""
+      type: portfolio
     values:
-    layout: single
-    author_profile: true 
+      layout: single
+      author_profile: true 
 
 collections:
   portfolio:
