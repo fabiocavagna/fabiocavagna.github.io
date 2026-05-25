@@ -1,6 +1,7 @@
 ---
 title: "Analysis and Testing of Space Structures"
 excerpt: "Study of the structural compliance of an ideal axial-symmetric spacecraft with the Vega-C launcher"
+image: /assets/images/atss.jpg    
 ---
 
 ## Objective
