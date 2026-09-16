@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import {
+  site,
+  about,
+  researchInterests,
+  experience,
+  education,
+  skills,
+  languages,
+  publications,
+} from '../data/site';
+import { projects } from '../data/projects';
+
+const base = import.meta.env.BASE_URL;
+const withBase = (path: string) => `${base.replace(/\/$/, '')}${path}`;
+---
+
+<Base>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <p class="role">{site.role}</p>
+      <h1>{site.name}</h1>
+      <p class="tagline">{site.tagline} · {site.location}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={site.cvHref} target="_blank" rel="noopener">
+          Download CV
+        </a>
+        <a class="btn btn-ghost" href={site.linkedin} target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+        <a class="btn btn-ghost" href={`mailto:${site.email}`}>Email</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <h2 class="section-title">About</h2>
+      {about.map((p) => <p>{p}</p>)}
+      <ul class="tag-list" style="margin-top: 0.5rem;">
+        {researchInterests.map((r) => <li class="tag">{r}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Projects</h2>
+      {projects.map((project) => (
+        <a class="project-card" href={withBase(`/projects/${project.slug}/`)}>
+          <img src={withBase(project.teaser)} alt={project.title} />
+          <div class="body">
+            <h3>{project.title}</h3>
+            <p>{project.subtitle}</p>
+            <ul class="tag-list">
+              {project.tools.map((t) => <li class="tag">{t}</li>)}
+            </ul>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      {experience.map((e) => (
+        <div class="entry">
+          <div class="entry-head">
+            <p class="entry-role">
+              {e.role} · <span class="entry-org">{e.org}</span>
+            </p>
+            <span class="entry-meta">{e.location} · {e.period}</span>
+          </div>
+          {e.context && <p class="entry-context">{e.context}</p>}
+          <ul>
+            {e.points.map((pt) => <li>{pt}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      {education.map((e) => (
+        <div class="entry">
+          <div class="entry-head">
+            <p class="entry-role">
+              {e.degree} · <span class="entry-org">{e.org}</span>
+            </p>
+            <span class="entry-meta">{e.location} · {e.period}</span>
+          </div>
+          {e.note && <p style="color: var(--text-muted); margin: 0.4rem 0 0;">{e.note}</p>}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="kv-grid">
+        {skills.map((s) => (
+          <div class="kv-row">
+            <span class="k">{s.category}</span>
+            <span class="v">{s.items}</span>
+          </div>
+        ))}
+      </div>
+      <h3 style="margin: 2rem 0 0.75rem;">Languages</h3>
+      <div class="kv-grid">
+        {languages.map((l) => (
+          <div class="kv-row">
+            <span class="k">{l.language}</span>
+            <span class="v">{l.level}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+      {publications.map((p) => (
+        <div class="pub">
+          <p class="pub-title">{p.title}</p>
+          <p class="pub-meta">{p.authors} — {p.venue}, {p.location} ({p.year})</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-links">
+        <span>Email: <a href={`mailto:${site.email}`}>{site.email}</a></span>
+        <span>LinkedIn: <a href={site.linkedin} target="_blank" rel="noopener">{site.linkedinLabel}</a></span>
+        <span>CV: <a href={site.cvHref} target="_blank" rel="noopener">Download PDF</a></span>
+      </div>
+    </div>
+  </section>
+</Base>

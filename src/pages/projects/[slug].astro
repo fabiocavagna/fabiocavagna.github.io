@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects, getProject } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const project = getProject(slug!);
+
+if (!project) {
+  return Astro.redirect('/404');
+}
+
+const base = import.meta.env.BASE_URL;
+const withBase = (path: string) => `${base.replace(/\/$/, '')}${path}`;
+---
+
+<Base title={project.title} description={project.summary}>
+  <article class="project-hero">
+    <div class="container">
+      <a class="back-link" href={withBase('/#projects')}>&larr; Back to projects</a>
+      <h1>{project.title}</h1>
+      <p class="subtitle">{project.subtitle}</p>
+      <ul class="tag-list">
+        {project.tools.map((t) => <li class="tag">{t}</li>)}
+      </ul>
+
+      <p style="color: var(--text-muted); margin-top: 1.5rem;">{project.summary}</p>
+
+      <div class="highlights">
+        {project.highlights.map((h) => (
+          <div class="highlight">
+            <div class="value">{h.value}</div>
+            <div class="label">{h.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <div class="container">
+    {project.sections.map((s) => (
+      <section class="project-section">
+        <h2>{s.heading}</h2>
+        <p>{s.body}</p>
+        {s.images && (
+          <div class="figure-row">
+            {s.images.map((im) => <img src={withBase(im.src)} alt={im.alt} loading="lazy" />)}
+          </div>
+        )}
+      </section>
+    ))}
+
+    <section class="project-section" style="border-bottom: none;">
+      <h2>What I Learned</h2>
+      <p>{project.learned}</p>
+    </section>
+  </div>
+</Base>

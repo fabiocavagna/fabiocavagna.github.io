@@ -1,0 +1,179 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[top=0.8cm, bottom=0.8cm, left=1.2cm, right=1.2cm]{geometry}
+\usepackage{fontspec}
+\usepackage[default,opentype]{sourcesanspro}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+
+% Colors
+\definecolor{headercolor}{HTML}{000000}
+\definecolor{subheadercolor}{HTML}{000000}
+\definecolor{datecolor}{HTML}{000000}
+
+% Hyperlink setup
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+
+% Remove page numbers / set footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\footnotesize\textcolor{datecolor}{Fabio Cavagna~~~\textperiodcentered~~~Curriculum Vitae}}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{headercolor}\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{0.4em}{0.3em}
+
+% Custom commands
+\newcommand{\cventry}[5]{%
+  \noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#2} & #3 \\
+    \textit{#1} & \textcolor{datecolor}{#4} \\
+  \end{tabularx}
+  \ifx&#5&\else
+    \vspace{-0.5em}
+    #5
+  \fi
+  \vspace{0.1em}
+}
+
+\newcommand{\cvskillrow}[2]{%
+  \textbf{#1:} & #2 \\[0.2em]
+}
+
+\setlist[itemize]{leftmargin=1.5em, itemsep=0pt, parsep=0pt, topsep=1pt}
+
+\begin{document}
+
+%-------------------------------------------------------------------------------
+% HEADER
+%-------------------------------------------------------------------------------
+\begin{center}
+  {\LARGE\bfseries Fabio Cavagna}\\[0.3em]
+  {\textit{PhD Candidate in Aerospace Engineering}}\\[0.4em]
+  \faPhone~(+39) 388-0749-788 \quad
+  \faEnvelope~\href{mailto:fabiocavagna0@gmail.com}{fabiocavagna0@gmail.com} \quad
+  \faLinkedin~\href{https://www.linkedin.com/in/fabio-cavagna}{fabio-cavagna}
+\end{center}
+
+\vspace{-0.8em}
+
+%-------------------------------------------------------------------------------
+% EXPERIENCE
+%-------------------------------------------------------------------------------
+\section{Experience}
+
+\cventry
+  {Research Test and Simulation Engineer}
+  {Siemens Digital Industries Software}
+  {Leuven, Belgium}
+  {Dec. 2024 -- Present}
+  {\begin{itemize}
+    \item Conducted experimental tests of structures mounted on shaker tables, post-processing the acquired data to extract modal parameters with Simcenter Testlab.
+    \item Performed numerical simulations of structures using Simcenter Nastran, validating the results against experimental data.
+  \end{itemize}}
+
+\cventry
+  {Structural Dynamics Intern}
+  {CNES}
+  {Paris, France}
+  {Apr. 2024 -- Oct. 2024}
+  {\begin{itemize}
+    \item Defined testing procedures for the experimental campaign, including the finalization of the installation of a small-scale tank and the definition of safety measures.
+    \item Performed numerical simulations to compute the sloshing and hydro-elastic modes of liquid tanks.
+  \end{itemize}}
+
+\cventry
+  {Master Thesis Intern}
+  {Thales Alenia Space}
+  {Turin, Italy}
+  {Mar. 2023 -- Sept. 2023}
+  {\begin{itemize}
+    \item Conducted a comprehensive assessment of methodologies used to evaluate and compare the severity of mechanical loads, including Shock Response Spectrum, Extreme Response Spectrum, and Fatigue Damage Spectrum.
+    \item Developed a novel approach for comparing the severity of mechanical Multi Degree of Freedom loads using MATLAB, emphasizing the analysis of interface forces in the presence of 6 DoF loads.
+  \end{itemize}}
+
+\cventry
+  {Structural Engineer}
+  {Polispace}
+  {Milan, Italy}
+  {Mar. 2023 -- Sept. 2023}
+  {\begin{itemize}
+    \item Student association developing a CubeSat for ESA's ``Fly Your Satellite!'' program. Simplified CAD geometries using SolidWorks and Abaqus, integrating them into the FEM model.
+    \item Contributed to defining structural requirements for the Thermal Vacuum Chamber Test to ensure CubeSat resilience in extreme conditions.
+  \end{itemize}}
+
+%-------------------------------------------------------------------------------
+% EDUCATION
+%-------------------------------------------------------------------------------
+\section{Education}
+
+\cventry
+  {PhD Candidate in Aerospace Engineering}
+  {Politecnico di Milano}
+  {Milan, Italy}
+  {Dec. 2024 -- Present}
+  {Research topic: ``Decoupling techniques based on substructuring for fixed-base analysis.''}
+
+\vspace{0.4em}
+
+\cventry
+  {Advanced Master in Aeronautical and Space Structures}
+  {ISAE-SUPAERO}
+  {Toulouse, France}
+  {Oct. 2023 -- Oct. 2024}
+  {\begin{itemize}
+    \item Team Innovative Management for Evolved Strategies -- TRL analysis for LH2 propellant transitioning from space to aeronautics. Defined WBS, Gantt chart, and risk matrix.
+    \item Space Structures -- Sizing of the TMI Wall of SPOT 4 for quasi-static loads, thermal loads, and buckling through Patran/MSC Nastran.
+  \end{itemize}}
+
+\cventry
+  {M.S. in Space Engineering}
+  {Politecnico di Milano}
+  {Milan, Italy}
+  {Sept. 2021 -- Oct. 2023}
+  {\begin{itemize}
+    \item Analysis and Testing of Space Structures -- Structural compliance study of an axial-symmetric spacecraft with Vega-C. Static, modal, thermoelastic, buckling, sine test, coupled load, and acoustic analyses in MSC Nastran (ECSS qualification levels).
+    \item Aerospace Technologies and Materials -- a) Modeled a composite panel with embedded piezoelectric plate; validated natural frequencies via NX Nastran and testing. b) Optimized an additive manufacturing component with Fusion 360 and Abaqus, achieving 61.63\% volume reduction.
+  \end{itemize}}
+
+\cventry
+  {B.S. in Aerospace Engineering}
+  {Politecnico di Milano}
+  {Milan, Italy}
+  {Sept. 2018 -- Sept. 2021}
+  {}
+
+%-------------------------------------------------------------------------------
+% SOFTWARE SKILLS
+%-------------------------------------------------------------------------------
+\section{Software Skills}
+
+\vspace{0.3em}
+\noindent\begin{tabularx}{\textwidth}{@{}r X@{}}
+  \cvskillrow{CAE}{Simcenter 3D, Abaqus, Femap, MSC Nastran, Patran, Ansys Mechanical, HyperMesh}
+  \cvskillrow{CAD}{CATIA, SolidWorks, Solid Edge, Autodesk Inventor}
+  \cvskillrow{Programming}{MATLAB, Python, LaTeX}
+  \cvskillrow{Office}{Microsoft Office}
+\end{tabularx}
+
+%-------------------------------------------------------------------------------
+% LANGUAGES
+%-------------------------------------------------------------------------------
+\section{Languages}
+
+\vspace{0.3em}
+\noindent\begin{tabularx}{\textwidth}{@{}r X@{}}
+  \cvskillrow{Italian}{Mother tongue}
+  \cvskillrow{English}{Proficient user}
+  \cvskillrow{French}{Independent user}
+\end{tabularx}
+
+\end{document}
