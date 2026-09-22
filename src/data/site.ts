@@ -1,6 +1,6 @@
 export const site = {
   name: 'Fabio Cavagna',
-  role: 'Aerospace Engineer — Structural Dynamics & Spacecraft Structures',
+  role: 'Space Engineer — Structural Dynamics & Spacecraft Structures',
   tagline: 'PhD Candidate in Aerospace Engineering, Politecnico di Milano',
   email: 'fabiocavagna0@gmail.com',
   linkedin: 'https://www.linkedin.com/in/fabio-cavagna',
